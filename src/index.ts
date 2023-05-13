@@ -24,10 +24,10 @@ server.listen(8080, () => {
   console.log('Server running on http://localhost:8080/');
 });
 
-const MONGO_URL = ''; // DB URI
+const url = process.env.MONGO_URL; // DB URI
 
 mongoose.Promise = Promise;
-mongoose.connect(MONGO_URL);
+mongoose.connect(url);
 mongoose.connection.on('error', (error: Error) => console.log(error));
 
 app.use('/', router());
